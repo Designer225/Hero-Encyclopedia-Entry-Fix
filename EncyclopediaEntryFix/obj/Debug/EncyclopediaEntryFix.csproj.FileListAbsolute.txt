@@ -26,3 +26,4 @@ D:\SteamLibrary\steamapps\common\Mount & Blade II Bannerlord\Modules\Encyclopedi
 D:\SteamLibrary\steamapps\common\Mount & Blade II Bannerlord\Modules\EncyclopediaEntryFix\EncyclopediaEntryFix\obj\Debug\EncyclopediaEntryFix.csproj.CopyComplete
 D:\SteamLibrary\steamapps\common\Mount & Blade II Bannerlord\Modules\EncyclopediaEntryFix\EncyclopediaEntryFix\obj\Debug\EncyclopediaEntryFix.dll
 D:\SteamLibrary\steamapps\common\Mount & Blade II Bannerlord\Modules\EncyclopediaEntryFix\EncyclopediaEntryFix\obj\Debug\EncyclopediaEntryFix.pdb
+D:\SteamLibrary\steamapps\common\Mount & Blade II Bannerlord\Modules\EncyclopediaEntryFix\EncyclopediaEntryFix\obj\Debug\EncyclopediaEntryFix.csprojAssemblyReference.cache
