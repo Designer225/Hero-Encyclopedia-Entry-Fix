@@ -1,7 +1,7 @@
 <Module>
 	<Name value="Hero Encyclopedia Entry Fix"/>
 	<Id value="EncyclopediaEntryFix"/>
-	<Version value="v1.0.1/>
+	<Version value="v1.0.1"/>
 	<SingleplayerModule value="true"/>
 	<MultiplayerModule value="false"/>
 	<Official value="false"/>
