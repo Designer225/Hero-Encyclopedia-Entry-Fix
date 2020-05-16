@@ -70,6 +70,7 @@
   <PropertyGroup>
     <PostBuildEvent>cd "$(TargetDir)"
 xcopy $(TargetFileName) ..\..\..\bin\Win64_Shipping_Client /y
+xcopy $(TargetName).pdb ..\..\..\bin\Win64_Shipping_Client /y
 xcopy 0Harmony.dll ..\..\..\bin\Win64_Shipping_Client /y</PostBuildEvent>
   </PropertyGroup>
 </Project>
