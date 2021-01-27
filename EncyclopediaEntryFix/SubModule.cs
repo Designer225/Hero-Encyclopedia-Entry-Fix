@@ -102,7 +102,7 @@ namespace EncyclopediaEntryFix
         }
     }
 
-    [HarmonyPatch(typeof(HeroVM), MethodType.Constructor, new Type[] { typeof(Hero) } )]
+    [HarmonyPatch(typeof(HeroVM), MethodType.Constructor, new Type[] { typeof(Hero), typeof(bool) } )]
     public static class HeroVM_Constructor_Patch
     {
         public static void Postfix(HeroVM __instance, Hero hero)
