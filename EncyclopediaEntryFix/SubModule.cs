@@ -117,11 +117,12 @@ namespace EncyclopediaEntryFix
     public static class CreateImageWithIdPatch
     {
         // The original method is async, but the problem spot is not, so...
-        public static void Postfix(ImageIdentifierTextureProvider __instance, string id, int typeAsInt, string additionalArgs)
+        public static void Postfix(ImageIdentifierTextureProvider __instance, string id, int typeAsInt, string additionalArgs, ref CharacterCode ____characterCode)
         {
             if (typeAsInt == 5)
             {
                 CharacterCode from = CharacterCode.CreateFrom(id);
+                ____characterCode = from;
 
                 if (TaleWorlds.Core.FaceGen.GetMaturityTypeWithAge(from.BodyProperties.Age) <= BodyMeshMaturityType.Child && from.BodyProperties.Age >= 3)
                     TableauCacheManager.Current.BeginCreateCharacterTexture(from, new Action<Texture>(__instance.OnTextureCreated), __instance.IsBig);
