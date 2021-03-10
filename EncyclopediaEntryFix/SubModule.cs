@@ -17,6 +17,7 @@ using TaleWorlds.Core.ViewModelCollection;
 using TaleWorlds.MountAndBlade.GauntletUI;
 using TaleWorlds.MountAndBlade.View;
 using TaleWorlds.Engine;
+using TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement;
 
 namespace EncyclopediaEntryFix
 {
@@ -132,6 +133,15 @@ namespace EncyclopediaEntryFix
         private static void OnTextureCreated(this ImageIdentifierTextureProvider instance, Texture texture)
         {
             AccessTools.Method(typeof(ImageIdentifierTextureProvider), "OnTextureCreated").Invoke(instance, new object[] { texture });
+        }
+    }
+
+    [HarmonyPatch(typeof(ClanLordItemVM), nameof(ClanLordItemVM.UpdateProperties))]
+    public static class ClanLordItemVMUpdatePropertiesPatch
+    {
+        public static void Postfix(ClanLordItemVM __instance, Hero ____hero)
+        {
+            __instance.IsChild = ____hero.Age < 3; // seriously TaleWorlds don't you think a picture of a baby is weird for a 3+ year old?
         }
     }
 }
