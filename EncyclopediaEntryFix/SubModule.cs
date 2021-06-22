@@ -121,7 +121,7 @@ namespace EncyclopediaEntryFix
         // The original method is async, but the problem spot is not, so...
         public static void Postfix(ImageIdentifierTextureProvider __instance, string id, int typeAsInt, string additionalArgs, ref CharacterCode ____characterCode, ref bool ____creatingTexture)
         {
-            if (typeAsInt == 5)
+            if (!string.IsNullOrEmpty(id) && typeAsInt == 5)
             {
                 CharacterCode from = CharacterCode.CreateFrom(id);
                 ____characterCode = from;
@@ -144,7 +144,7 @@ namespace EncyclopediaEntryFix
     {
         public static void Postfix(ImageIdentifierTextureProvider __instance, CharacterCode ____characterCode)
         {
-            if (__instance.ImageTypeCode == 5
+            if (__instance.ImageTypeCode == 5 && ____characterCode != null
                 && TaleWorlds.Core.FaceGen.GetMaturityTypeWithAge(____characterCode.BodyProperties.Age) <= BodyMeshMaturityType.Child
                 && ____characterCode.BodyProperties.Age >= 3)
             {
