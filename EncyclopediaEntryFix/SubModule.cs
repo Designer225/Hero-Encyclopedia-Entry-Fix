@@ -19,6 +19,8 @@ using TaleWorlds.MountAndBlade.View;
 using TaleWorlds.Engine;
 using TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement;
 using TaleWorlds.Library;
+using TaleWorlds.MountAndBlade.GauntletUI.TextureProviders;
+using TaleWorlds.MountAndBlade.View.Tableaus;
 
 namespace EncyclopediaEntryFix
 {
@@ -119,23 +121,16 @@ namespace EncyclopediaEntryFix
     public static class CreateImageWithIdPatch
     {
         // The original method is async, but the problem spot is not, so...
-        public static void Postfix(ImageIdentifierTextureProvider __instance, string id, int typeAsInt, string additionalArgs, ref CharacterCode ____characterCode, ref bool ____creatingTexture)
+        public static void Postfix(ImageIdentifierTextureProvider __instance, string id, int typeAsInt, string additionalArgs, CharacterCode ____characterCode, ref bool ____creatingTexture)
         {
             if (!string.IsNullOrEmpty(id) && typeAsInt == 5)
             {
-                CharacterCode from = CharacterCode.CreateFrom(id);
-                ____characterCode = from;
-                if (TaleWorlds.Core.FaceGen.GetMaturityTypeWithAge(from.BodyProperties.Age) <= BodyMeshMaturityType.Child && from.BodyProperties.Age >= 3)
+                if (TaleWorlds.Core.FaceGen.GetMaturityTypeWithAge(____characterCode.BodyProperties.Age) <= BodyMeshMaturityType.Child && ____characterCode.BodyProperties.Age >= 3)
                 {
                     ____creatingTexture = true;
-                    TableauCacheManager.Current.BeginCreateCharacterTexture(from, new Action<Texture>(__instance.OnTextureCreated), __instance.IsBig);
+                    TableauCacheManager.Current.BeginCreateCharacterTexture(____characterCode, AccessTools.MethodDelegate<Action<Texture>>(AccessTools.Method(typeof(ImageIdentifierTextureProvider), "OnTextureCreated"), __instance), __instance.IsBig);
                 }
             }
-        }
-
-        private static void OnTextureCreated(this ImageIdentifierTextureProvider instance, Texture texture)
-        {
-            AccessTools.Method(typeof(ImageIdentifierTextureProvider), "OnTextureCreated").Invoke(instance, new object[] { texture });
         }
     }
 
