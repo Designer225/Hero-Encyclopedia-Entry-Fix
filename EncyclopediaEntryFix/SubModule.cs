@@ -31,6 +31,7 @@ namespace EncyclopediaEntryFix
             base.OnSubModuleLoad();
             var harmony = new Harmony("d225.bannerlord.encyclopediaheropagefix");
             harmony.PatchAll();
+            Debug.Print("Hero Encyclopedia Entry Fix launched");
         }
     }
 
