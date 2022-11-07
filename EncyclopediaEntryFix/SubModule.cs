@@ -1,24 +1,16 @@
-﻿using System;
+﻿using HarmonyLib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaleWorlds.MountAndBlade;
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.Encyclopedia;
-using TaleWorlds.CampaignSystem.Encyclopedia.Pages;
-using TaleWorlds.Core;
-using TaleWorlds.Localization;
-using HarmonyLib;
 using System.Reflection.Emit;
-using System.Reflection;
+using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ViewModelCollection;
-using TaleWorlds.Core.ViewModelCollection;
-using TaleWorlds.MountAndBlade.GauntletUI;
-using TaleWorlds.MountAndBlade.View;
-using TaleWorlds.Engine;
 using TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement;
+using TaleWorlds.Core;
+using TaleWorlds.Core.ViewModelCollection;
+using TaleWorlds.Engine;
 using TaleWorlds.Library;
+using TaleWorlds.MountAndBlade;
 using TaleWorlds.MountAndBlade.GauntletUI.TextureProviders;
 using TaleWorlds.MountAndBlade.View.Tableaus;
 
@@ -31,7 +23,7 @@ namespace EncyclopediaEntryFix
             base.OnSubModuleLoad();
             var harmony = new Harmony("d225.bannerlord.encyclopediaheropagefix");
             harmony.PatchAll();
-            Debug.Print("Hero Encyclopedia Entry Fix launched");
+            Debug.Print("[EncyclopediaEntryFix] Loaded");
         }
     }
 
