@@ -5,8 +5,6 @@
     <AssemblyTitle>EncyclopediaEntryFix</AssemblyTitle>
     <Product>EncyclopediaEntryFix</Product>
     <Copyright>Copyright ©  2020</Copyright>
-    <AssemblyVersion>1.1.4.17</AssemblyVersion>
-    <FileVersion>1.1.4.17</FileVersion>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
     <PostBuildEvent />
@@ -37,6 +35,7 @@
     <PostBuildEvent />
     <BaseOutputPath>..\bin\Win64_Shipping_Client\</BaseOutputPath>
     <PlatformTarget>x64</PlatformTarget>
+    <Version>1.1.4.17</Version>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Lib.Harmony" Version="2.2.2" />
